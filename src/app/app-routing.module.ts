@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthPageModule)
   },
+  {
+    path: '404',
+    loadChildren: () => import('./shared/404/404.module').then( m => m.404PageModule)
+  },
 ];
 
 @NgModule({
