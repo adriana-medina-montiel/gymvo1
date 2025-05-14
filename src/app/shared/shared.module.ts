@@ -12,9 +12,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    HeaderComponent,           // ✅ importar componentes standalone
+    HeaderComponent,
     CustomImputComponent,
     LogoComponent
+
   ],
   exports: [
     HeaderComponent,
