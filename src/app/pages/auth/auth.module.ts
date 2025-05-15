@@ -8,7 +8,8 @@ import { AuthPageRoutingModule } from './auth-routing.module';
 
 import { AuthPage } from './auth.page';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CustomImputComponent } from 'src/app/shared/components/custom-imput/custom-imput.component';
+import { CustomInputComponent } from 'src/app/shared/components/custom-input/custom-input.component';
+
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { CustomImputComponent } from 'src/app/shared/components/custom-imput/cus
     AuthPageRoutingModule,
     AuthPage,
     SharedModule,
-    CustomImputComponent,
+    CustomInputComponent
     
   ],
   

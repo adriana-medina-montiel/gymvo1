@@ -1,26 +1,27 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
-import { CustomImputComponent } from './components/custom-imput/custom-imput.component';
-import { LogoComponent } from './components/logo/logo.component';
-import { IonicModule } from '@ionic/angular';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { IonicModule } from '@ionic/angular';
+import { HeaderComponent } from './components/header/header.component';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { LogoComponent } from './components/logo/logo.component';
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
+    ReactiveFormsModule,
     HeaderComponent,
-    CustomImputComponent,
+    CustomInputComponent,
     LogoComponent
-
   ],
   exports: [
     HeaderComponent,
-    CustomImputComponent,
-    LogoComponent
+    CustomInputComponent,
+    LogoComponent,
+    ReactiveFormsModule
+
   ]
 })
 export class SharedModule {}
