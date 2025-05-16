@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { HeaderComponent } from 'src/app/shared/components/header/header.component';
-import { CustomInputComponent } from 'src/app/shared/components/custom-input/custom-input.component';
-import { LogoComponent } from 'src/app/shared/components/logo/logo.component';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { RouterLink } from "@angular/router";
+import { IonicModule } from "@ionic/angular";
+import { CustomInputComponent } from "src/app/shared/components/custom-input/custom-input.component";
+import { HeaderComponent } from "src/app/shared/components/header/header.component";
+import { LogoComponent } from "src/app/shared/components/logo/logo.component";
 
 
 @Component({
@@ -13,10 +13,16 @@ import { RouterLink } from '@angular/router';
   selector: 'app-auth',
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
-   imports: [CommonModule, FormsModule, IonicModule, HeaderComponent, ReactiveFormsModule,CustomInputComponent,LogoComponent,RouterLink],
-   
-  
-  
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IonicModule,
+    RouterLink,
+    HeaderComponent,
+    CustomInputComponent,
+    LogoComponent
+  ]
 })
 export class AuthPage implements OnInit {
 
@@ -40,4 +46,3 @@ export class AuthPage implements OnInit {
   }
 
 }
-

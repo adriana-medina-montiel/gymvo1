@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+
 import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';   // Importa IonicModule
-import { FormsModule } from '@angular/forms'; // Importa FormsModule, si lo usas
+ // Importa FormsModule, si lo usas
 
 @Component({
+  
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
   styleUrls: ['./sign-up.page.scss'],
