@@ -13,6 +13,9 @@ import { IonicModule } from '@ionic/angular';
 export class HeaderComponent  implements OnInit {
 
   @Input() title!: string;
+  @Input() backButton!: string;
+
+
 
   constructor() { }
 
