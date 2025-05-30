@@ -1,7 +1,10 @@
-.shield-icon{
-    font-size: 80px;
-    margin-top: 40px;
+.shield-icon {
+    display: block;
+    margin: 60px auto 20px auto; /* Centrado horizontal */
+    transform: scale(1.5);       /* Aumenta el tamaño 1.5 veces */
 }
-h1{
+
+ion-text h1 {
     margin-top: 0;
+    text-align: center;    /* Centra el texto */
 }

@@ -1,3 +1,15 @@
 .admin {
     font-size: 13px;
 }
+.gray-toolbar {
+  --background: #2a2a2a; // fondo del toolbar gris
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ff7300, #fcb045);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
