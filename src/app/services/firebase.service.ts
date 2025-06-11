@@ -4,6 +4,7 @@ import { User } from '../models/user.model';
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth'
 import {AngularFirestore} from '@angular/fire/compat/firestore'
 import {getFirestore,setDoc, doc, getDoc} from '@angular/fire/firestore'
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,12 @@ export class FirebaseService {
 
   auth = inject(AngularFireAuth);
   firestore = inject (AngularFirestore);
+  utlsSvc = inject(UtilsService)
 
   //autenticacion
+  getAuth(){
+    return getAuth();
+  }
 
 
   signIn(user:User,){
@@ -28,6 +33,12 @@ export class FirebaseService {
 
   sendRecoveryEmail(email: string){
     return sendPasswordResetEmail(getAuth(), email)
+  }
+  //cerrar sesion
+  signOut(){
+    getAuth().signOut()
+    localStorage.removeItem('user')
+    this.utlsSvc.routerLink('/auth')
   }
 
 
