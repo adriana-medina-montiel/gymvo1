@@ -52,5 +52,14 @@ export class FirebaseService {
 
   }
 
+  getCurrentUserId(): string | null {
+    return this.getAuth().currentUser?.uid || null;
+  }
+  async updateDocument(path: string, data: any) {
+    const docRef = doc(getFirestore(), path);
+    return await setDoc(docRef, data, { merge: true }); // merge mantiene los campos previos
+  }
+  
+
 
 }

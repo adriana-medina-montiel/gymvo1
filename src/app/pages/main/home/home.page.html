@@ -1,1 +1,20 @@
-<app-header title="Inicio"></app-header>
+<div class="home-container">
+  <h2>¡Bienvenido, {{ userData?.name || 'Usuario' }}!</h2>
+
+  <div class="card">
+    <h3>Tu membresía:</h3>
+    <p>{{ userData?.membership }}</p>
+  </div>
+
+  <div class="card" *ngIf="userData?.nextClass">
+    <h3>Próxima clase:</h3>
+    <p>{{ userData.nextClass.title }} a las {{ userData.nextClass.hour }}</p>
+  </div>
+
+  <div class="card" *ngIf="notifications.length">
+    <h3>Notificaciones:</h3>
+    <ul>
+      <li *ngFor="let note of notifications">{{ note }}</li>
+    </ul>
+  </div>
+</div>
