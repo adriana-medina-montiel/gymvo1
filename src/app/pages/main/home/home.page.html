@@ -1,20 +1,29 @@
-<div class="home-container">
-  <h2>¡Bienvenido, {{ userData?.name || 'Usuario' }}!</h2>
+<app-header></app-header>
+<div class="container">
+  <h1>¡Bienvenido, {{ userName }}!</h1>
 
-  <div class="card">
-    <h3>Tu membresía:</h3>
-    <p>{{ userData?.membership }}</p>
-  </div>
+  <section class="card">
+    <h2>Tu membresía:</h2>
+    <p>{{ membership }}</p>
+  </section>
 
-  <div class="card" *ngIf="userData?.nextClass">
-    <h3>Próxima clase:</h3>
-    <p>{{ userData.nextClass.title }} a las {{ userData.nextClass.hour }}</p>
-  </div>
+  <section class="card" *ngIf="nextClass">
+    <h2>Próxima clase:</h2>
+    <p><strong>{{ nextClass.title }}</strong> a las {{ nextClass.hour }}</p>
+  </section>
 
-  <div class="card" *ngIf="notifications.length">
-    <h3>Notificaciones:</h3>
+  <section class="card" *ngIf="notifications.length">
+    <h2>Notificaciones:</h2>
     <ul>
       <li *ngFor="let note of notifications">{{ note }}</li>
     </ul>
-  </div>
+  </section>
+
+  <section class="actions">
+    <button (click)="verClases()">Ver clases</button>
+    <button (click)="registrarAsistencia()">Registrar asistencia</button>
+    <button (click)="verHistorial()">Ver historial</button>
+    <button (click)="logout()">Cerrar sesión</button>
+  </section>
 </div>
+

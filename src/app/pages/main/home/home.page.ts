@@ -4,38 +4,56 @@ import { IonicModule } from '@ionic/angular';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
+import { getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  imports:[IonicModule, CommonModule]
+  imports:[IonicModule, CommonModule, HeaderComponent]
 })
 export class HomePage implements OnInit {
 
-   userData: any = null;
+ userName: string = '';
+  membership: string = '';
+  nextClass: { title: string; hour: string } | null = null;
   notifications: string[] = [];
 
-  constructor(private firebaseService: FirebaseService) {}
+  constructor(private firebase: FirebaseService) {}
 
-  async ngOnInit() {
-    const currentUser = this.firebaseService.getAuth().currentUser;
-    if (!currentUser) return;
+  ngOnInit() {
+    const uid = getAuth().currentUser?.uid;
+    if (!uid) return;
 
-    const uid = currentUser.uid;
+    // Datos del usuario
+    this.firebase.getDocument(`users/${uid}`).then((data: any) => {
+      this.userName = data.name || 'Usuario';
+      this.membership = data.membership || 'Sin membresía';
+      this.nextClass = data.nextClass || null;
+    });
 
-    try {
-      // Obtener datos del usuario
-      const userDoc = await this.firebaseService.getDocument(`users/${uid}`);
-      console.log('Datos del usuario:', userDoc);  // 👈 Verifica aquí en consola
-      this.userData = userDoc;
+    // Notificaciones globales
+    this.firebase.getDocument('config/general').then((data: any) => {
+      this.notifications = data['notifications'] || [];
+    });
+  }
 
-      // Obtener notificaciones
-      const configDoc = await this.firebaseService.getDocument('config/general');
-      this.notifications = configDoc?.['notifications'] || [];
+  verClases() {
+    // Aquí va navegación a pantalla de clases
+    console.log('Ir a clases');
+  }
 
-    } catch (error) {
-      console.error('Error al cargar datos de Firestore:', error);
-    }
+  registrarAsistencia() {
+    // Lógica para registrar asistencia
+    console.log('Asistencia registrada');
+  }
+
+  verHistorial() {
+    // Ir a historial del usuario
+    console.log('Ir al historial');
+  }
+
+  logout() {
+    this.firebase.signOut();
   }
 }

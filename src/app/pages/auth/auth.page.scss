@@ -1,0 +1,61 @@
+ion-content {
+  --background: #1d1d1d; // Fondo oscuro
+  color: white;
+}
+
+// Formulario general
+.auth-form {
+  color: white; // Asegura texto claro
+}
+
+// Input personalizado
+app-custom-input {
+  width: 100%;
+
+  ion-item {
+    --background: #3d3d3d; // Fondo del input actualizado
+    --border-radius: 12px;
+    --padding-start: 8px;
+    --inner-padding-end: 0;
+    --highlight-color-focused: #d98c14;
+    --highlight-color-invalid: #ff4d4f;
+    color: #fff;
+    border: none;
+    margin: 0;
+    }
+
+  ion-input {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  ion-icon {
+    color: #d1d1d1;
+  }
+}
+
+// Botón principal
+ion-button.submit {
+  --background: linear-gradient(to right, #c2451d, #d98c14);
+  --border-radius: 24px;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  height: 48px;
+  color: white;
+}
+
+// Botón "Registrate" (outline)
+ion-button[fill="outline"] {
+  --border-color: #d98c14;
+  --color: #d98c14;
+  font-weight: bold;
+}
+
+// Link "¿Olvidaste tu contraseña?"
+p[routerLink] {
+  color: #aaa;
+  font-size: 14px;
+  text-align: right;
+  margin: 0;
+}
